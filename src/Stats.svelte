@@ -34,9 +34,8 @@
         padding: 5px 20px 3px;
         place-self: center;
         place-content: center;
-        gap: 10px;
+        gap: 15px;
         border-radius: 50vh;
-        /* color: var(--sn); */
     }
 
     .item {
@@ -54,7 +53,6 @@
 
     .label {
         font-family: PFD Mono;
-        /* color: var(--gray); */
     }
 
     .plays {

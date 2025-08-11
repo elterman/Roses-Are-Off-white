@@ -8,7 +8,6 @@
 </script>
 
 <div class="counters {color}">
-    <Score />
     <div class="timer {color}">
         <Timer secs={elapsedSecs()} />
     </div>
@@ -22,13 +21,11 @@
         grid-auto-flow: column;
         align-items: center;
         gap: 50px;
-        color: var(--background);
         transition: color 1s;
     }
 
     .timer {
         font-size: 40px;
-        color: var(--sn);
     }
 
     .red {

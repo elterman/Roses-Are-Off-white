@@ -65,7 +65,6 @@
             margin: 0;
             overflow: hidden;
             --bill: #e5d5ca;
-            --sn: #309678;
             --gray: #6d6a67;
             --offwhite: #b8b8b8;
             --background: #202020;

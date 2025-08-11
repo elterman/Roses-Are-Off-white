@@ -30,10 +30,8 @@
         font-family: Roboto;
         font-size: 20px;
         font-weight: bold;
-        color: var(--gray);
         align-items: center;
         opacity: 0;
-        transition: opacity 0.2s;
     }
 
     .visible {
@@ -44,13 +42,7 @@
         font-family: PFD Mono;
     }
 
-    .value {
-        scale: 0.85 1;
-        color: var(--sn);
-    }
-
     .count {
-        color: var(--sn);
         display: grid;
         grid-auto-flow: column;
     }
