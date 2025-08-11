@@ -14,8 +14,8 @@
                 return;
             }
 
-            if (ss.flip) {
-                ss.flip = false;
+            if (ss.swirl) {
+                ss.swirl = false;
                 onStart();
             }
         };
@@ -25,7 +25,7 @@
     });
 </script>
 
-<div class="board {ss.flip ? 'flipped' : ''}" bind:this={_this}>
+<div class="board {ss.swirl ? 'swirled' : ''}" bind:this={_this}>
     {#each ss.cells as cell (cell.row * 10 + cell.col)}
         <Cell {cell} />
     {/each}
@@ -44,7 +44,7 @@
         transition: linear transform 0.5s;
     }
 
-    .flipped {
+    .swirled {
         transform: rotateY(90deg);
     }
 

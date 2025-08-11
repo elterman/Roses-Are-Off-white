@@ -20,7 +20,7 @@
             }
 
             if (_prompt.opacity == 0) {
-                _prompt.set(ss.over && !ss.flip ? PROMPT_PLAY_AGAIN : null);
+                _prompt.set(ss.over && !ss.swirl ? PROMPT_PLAY_AGAIN : null);
             }
         };
 
@@ -44,7 +44,7 @@
     const onPlayAgain = () => {
         _sound.play('plop');
 
-        ss.flip = true;
+        ss.swirl = true;
         ss.score = 0;
     };
 

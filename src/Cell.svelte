@@ -231,6 +231,6 @@
     }
 
     .flipped {
-        transform: rotateX(90deg);
+        transform: rotateY(90deg);
     }
 </style>
