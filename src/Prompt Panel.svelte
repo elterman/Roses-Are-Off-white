@@ -14,6 +14,7 @@
     .prompt-panel {
         display: grid;
         grid-auto-flow: column;
+        gap: 20px;
     }
 
     .read-only {

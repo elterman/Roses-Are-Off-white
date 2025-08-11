@@ -1,5 +1,4 @@
 <script>
-    import Score from './Score.svelte';
     import { elapsedSecs } from './shared.svelte';
     import { ss } from './state.svelte';
     import Timer from './Timer.svelte';
@@ -21,7 +20,7 @@
         grid-auto-flow: column;
         align-items: center;
         gap: 50px;
-        transition: color 1s;
+        /* transition: color 1s; */
     }
 
     .timer {
@@ -29,6 +28,8 @@
     }
 
     .red {
-        color: brown;
+        background: var(--offwhite);
+        color: var(--background);
+        padding: 3px 5px;
     }
 </style>

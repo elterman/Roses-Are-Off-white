@@ -13,7 +13,7 @@
     <span class="label">SELECTED</span>
     <span>•</span>
     <NumberFlowGroup>
-        <div class="count">
+        <div class="count" style=" --number-flow-mask-height: 0em;">
             <NumberFlow value={count} />
             <NumberFlow prefix="/" value={total} />
         </div>

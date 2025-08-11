@@ -15,7 +15,7 @@
 <div class="timer">
     <NumberFlowGroup>
         <div
-            style="font-variant-numeric: tabular-nums; --number-flow-char-height: 0.85em;"
+            style="font-variant-numeric: tabular-nums; --number-flow-char-height: 0.85em; --number-flow-mask-height: 0em;"
             class="~text-3xl/4xl flex items-baseline font-semibold group">
             {#if time.h}
                 <NumberFlow trend={1} value={time.h} />
@@ -30,9 +30,7 @@
     .timer {
         display: grid;
         font-family: Roboto;
-        scale: 0.85 1;
         font-weight: bold;
-        /* font-size: 40px; */
     }
 
     .group {

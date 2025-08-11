@@ -10,7 +10,7 @@
 <div class="stats">
     <div class="item">
         <span class="label">PLAYS</span>
-        <div class="plays">
+        <div class="plays" style='--number-flow-mask-height: 0em;'>
             <NumberFlow value={_stats.won} />
             <span>/</span>
             <NumberFlow value={_stats.plays} />
@@ -34,7 +34,7 @@
         padding: 5px 20px 3px;
         place-self: center;
         place-content: center;
-        gap: 15px;
+        gap: 12px;
         border-radius: 50vh;
     }
 
