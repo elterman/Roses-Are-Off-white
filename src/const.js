@@ -1,0 +1,16 @@
+export const APP_STATE = 'YOLO V1';
+export const X = '✖';
+export const GAME_PAGE = 'GAME PAGE';
+export const PROMPT_TRANSITION = 300;
+export const PROMPT_RESET_STATS = 'reset stats?';
+export const PROMPT_RESTART = 'start over?';
+export const PROMPT_PLAY_AGAIN = 'play again?';
+export const PROMPT_START = 'start';
+export const PROMPT_RESUME = 'resume';
+export const PROMPT_NO = 'no';
+export const ROWS = 9;
+export const COLS = 3;
+export const SOLO_SEED = ROWS * COLS;
+export const BILLS = [1, 2, 5, 10, 20, 50, 100];
+export const TICK_MS = 500;
+export const TIME_OUT_SECS = 3559;

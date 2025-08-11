@@ -1,0 +1,153 @@
+<script>
+    import Corners from '$lib/images/Corners.webp';
+    import Frame from '$lib/images/Frame.webp';
+    import GamePage from '../Game Page.svelte';
+    import Intro from '../Intro.svelte';
+    import Splash from '../Splash.svelte';
+    import { post, windowSize } from '../utils';
+
+    let scale = $state(1);
+
+    $effect(() => {
+        const disable = (e) => {
+            e.preventDefault();
+        };
+
+        const onResize = () => {
+            let scx = 1;
+            let scy = 1;
+
+            const { w, h } = windowSize();
+
+            if (w < 450) {
+                scx = w / 450;
+            }
+
+            if (h < 788) {
+                scy = h / 788;
+            }
+
+            scale = Math.min(scx, scy);
+        };
+
+        onResize();
+
+        window.addEventListener('contextmenu', disable);
+        window.addEventListener('dblclick', disable);
+        window.addEventListener('resize', onResize);
+
+        return () => {
+            window.removeEventListener('contextmenu', disable);
+            window.removeEventListener('dblclick', disable);
+            window.removeEventListener('resize', onResize);
+        };
+    });
+
+    let splash = $state(true);
+    post(() => (splash = false), 2000);
+</script>
+
+<div class="app">
+    {#if splash}
+        <Splash />
+    {:else}
+        <div class="content" style="scale: {scale};">
+            <img class="frame" src={Frame} alt="" />
+            <GamePage />
+            <Intro />
+        </div>
+    {/if}
+</div>
+
+<style>
+    :global {
+        body {
+            margin: 0;
+            overflow: hidden;
+            --bill: #e5d5ca;
+            --sn: #309678;
+            --gray: #6d6a67;
+            --offwhite: #b8b8b8;
+            --background: #202020;
+            background: var(--background);
+            color: var(--offwhite);
+        }
+
+        .button-base {
+            box-sizing: border-box;
+            cursor: pointer;
+            display: grid;
+            place-content: center;
+            transition: transform 0.1s;
+        }
+
+        .button-base:focus {
+            outline: none !important;
+        }
+
+        .no-highlight {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    }
+
+    .app {
+        display: grid;
+        height: 100dvh;
+        -webkit-user-select: none;
+        user-select: none;
+        overflow: hidden;
+        touch-action: manipulation;
+        outline: none !important;
+        background-image: url('$lib/images/Pattern.webp');
+        background-size: 260px;
+        place-content: center;
+    }
+
+    .content {
+        grid-area: 1/1;
+        display: grid;
+        background: var(--background);
+        touch-action: none;
+    }
+
+    .frame {
+        grid-area: 1/1;
+        touch-action: none;
+    }
+
+    @font-face {
+        font-family: Cinzel;
+        src: url('$lib/fonts/Cinzel.ttf');
+    }
+
+    @font-face {
+        font-family: Chevalier Stripes;
+        src: url('$lib/fonts/Chevalier Stripes.ttf');
+    }
+
+    @font-face {
+        font-family: PFD Mono;
+        src: url('$lib/fonts/PF Din Mono.otf');
+    }
+
+    @font-face {
+        font-family: Roboto;
+        src: url('$lib/fonts/Roboto-Regular.ttf');
+    }
+
+    @font-face {
+        font-family: 'Roboto Condensed';
+        src: url('$lib/fonts/Roboto Condensed.ttf');
+    }
+
+    @font-face {
+        font-family: 'Roboto Mono';
+        src: url('$lib/fonts/Roboto Mono.ttf');
+    }
+</style>
