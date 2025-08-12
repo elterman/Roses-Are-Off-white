@@ -1,5 +1,6 @@
 <script>
     import BMG from '$lib/images/BMG.webp';
+    import { scale } from 'svelte/transition';
     import { windowSize } from './utils';
 
     let bmgWidth = $state(0);
@@ -16,8 +17,8 @@
     };
 </script>
 
-<div class={classes} onpointerdown={onPointerDown}>
-    <img src={BMG} alt='' width={bmgWidth} />
+<div class={classes} onpointerdown={onPointerDown} out:scale={{ opacity: 1 }}>
+    <img src={BMG} alt="" width={bmgWidth} />
 </div>
 
 <style>
