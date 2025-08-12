@@ -2,12 +2,13 @@
     import { elapsedSecs } from './shared.svelte';
     import { ss } from './state.svelte';
     import Timer from './Timer.svelte';
-
-    const color = $derived(ss.over === 'lost' ? 'lost' : '');
 </script>
 
-<div class="counters {color}">
-    <div class="timer {color}">
+<div class="counters">
+    {#if ss.over === 'lost'}
+        <span>you failed at</span>
+    {/if}
+    <div class="timer">
         <Timer secs={elapsedSecs()} />
     </div>
 </div>
@@ -17,19 +18,13 @@
         grid-area: 2/1;
         place-self: center;
         display: grid;
-        grid-auto-flow: column;
+        justify-items: center;
         align-items: center;
-        gap: 50px;
-        /* transition: color 1s; */
+        gap: 10px;
+        font-family: Cinzel;
     }
 
     .timer {
         font-size: 40px;
-    }
-
-    .lost {
-        background: var(--offwhite);
-        color: var(--background);
-        padding: 3px 5px;
     }
 </style>
