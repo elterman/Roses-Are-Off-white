@@ -34,7 +34,7 @@ export const FLOWERS = [
     [F5, 'dame\'s rocket'],
     [F6, 'chickweed'],
     [F7, 'chicory'],
-    [F8, 'wood sorrels'],
+    [F8, 'wood sorrel'],
     [F9, 'creeping bellflower'],
     [F10, 'henbit'],
 ];
