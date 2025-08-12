@@ -30,30 +30,36 @@
 
         post(loadGame);
     });
-
-    const hidden = $derived(ss.intro);
 </script>
 
-<div class="game-page {hidden ? 'hidden' : ''}">
-    <Stats />
-    <Counters/>
-    <Board />
-    <InfoPanel />
-    <Prompt />
-    <Toolbar />
+<div class="game-page-container">
+    <div class="game-page {ss.intro ? 'slide' : ''}">
+        <Stats />
+        <Counters />
+        <Board />
+        <InfoPanel />
+        <Prompt />
+        <Toolbar />
+    </div>
 </div>
 
 <style>
-    .game-page {
+    .game-page-container {
         grid-area: 1/1;
+        display: grid;
+        margin: 0 20px;
+        overflow: hidden;
+    }
+
+    .game-page {
         display: grid;
         grid: auto 1.5fr auto 1fr auto / auto;
         padding: 40px 0;
-        /* background: #0007; */
         width: 100%;
+        transition: transform 0.2s;
     }
 
-    .hidden {
-        opacity: 0;
+    .slide {
+        transform: translateX(400px);
     }
 </style>
