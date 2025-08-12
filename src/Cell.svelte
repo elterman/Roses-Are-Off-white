@@ -1,26 +1,15 @@
 <script>
-    import F1 from '$lib/images/F1.webp';
-    import F2 from '$lib/images/F2.webp';
-    import F3 from '$lib/images/F3.webp';
-    import F4 from '$lib/images/F4.webp';
-    import F5 from '$lib/images/F5.webp';
-    import F6 from '$lib/images/F6.webp';
-    import F7 from '$lib/images/F7.webp';
-    import F8 from '$lib/images/F8.webp';
-    import F9 from '$lib/images/F9.webp';
-    import F10 from '$lib/images/F10.webp';
     import Fake from '$lib/images/Fake.webp';
     import Real from '$lib/images/Real.webp';
     import { random, sample } from 'lodash-es';
+    import { FLOWER_COUNT, FLOWERS } from './const';
     import { onOver, selectedCells, selectedValueCells } from './shared.svelte';
     import { _sound } from './sound.svelte';
     import { _prompt, ss } from './state.svelte';
     import { cellIndex, post, range } from './utils';
-    import { FLOWER_COUNT } from './const';
 
     const { cell } = $props();
     let _this = $state(null);
-    const flowers = [F1, F2, F3, F4, F5, F6, F7, F8, F9, F10];
 
     const updateScore = (gain) => {
         ss.score += gain;
@@ -119,7 +108,7 @@
 
 <div bind:this={_this} class={classes} style="grid-area: {cell.row}/{cell.col};" onpointerdown={onPointerDown}>
     <div class="cell-inner {cell.killed ? 'pop' : ''}">
-        <img class="img {cell.value && !cell.killed ? 'visible' : ''}" src={cell.value ? flowers[cell.value - 1] : null} alt="" />
+        <img class="img {cell.value && !cell.killed ? 'visible' : ''}" src={cell.value ? FLOWERS[cell.value - 1][0] : null} alt="" />
         {#if cell.selected && !ss.over}
             {@const style = 'user-drag: none;'}
             <img class="stamp {cell.killed ? 'fake-fade' : ''}" {style} src={Fake} alt="" />

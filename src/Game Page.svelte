@@ -47,7 +47,7 @@
     .game-page {
         grid-area: 1/1;
         display: grid;
-        grid: auto 1fr auto 1fr auto / auto;
+        grid: auto 1.5fr auto 1fr auto / auto;
         padding: 40px 0;
         /* background: #0007; */
         width: 100%;
