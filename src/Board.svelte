@@ -1,10 +1,7 @@
 <script>
     import Cell from './Cell.svelte';
-    import { elapsedSecs, onStart } from './shared.svelte';
+    import { onStart } from './shared.svelte';
     import { ss } from './state.svelte';
-    import TimeOut from '$lib/images/Time Out.webp';
-    import { COLS, ROWS, TIME_OUT_SECS } from './const';
-    import { fade } from 'svelte/transition';
 
     let _this = $state(null);
 
@@ -29,10 +26,6 @@
     {#each ss.cells as cell (cell.row * 10 + cell.col)}
         <Cell {cell} />
     {/each}
-    {#if elapsedSecs() >= TIME_OUT_SECS}
-        {@const style = `user-drag: none; grid-area: 1/1/span ${ROWS}/span ${COLS};`}
-        <img class="stamp" {style} src={TimeOut} alt="" transition:fade/>
-    {/if}
 </div>
 
 <style>

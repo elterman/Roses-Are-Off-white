@@ -1,11 +1,14 @@
 <script>
+    import { TIME_OUT_SECS } from './const';
     import { elapsedSecs } from './shared.svelte';
     import { ss } from './state.svelte';
     import Timer from './Timer.svelte';
 </script>
 
 <div class="counters">
-    {#if ss.over === 'lost'}
+    {#if elapsedSecs() >= TIME_OUT_SECS}
+        <span>timed out at</span>
+    {:else if ss.over === 'lost'}
         <span>you failed at</span>
     {/if}
     <div class="timer">

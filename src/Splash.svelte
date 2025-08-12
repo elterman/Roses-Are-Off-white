@@ -1,7 +1,6 @@
 <script>
-    import { fade } from 'svelte/transition';
-    import { windowSize } from './utils';
     import BMG from '$lib/images/BMG.webp';
+    import { windowSize } from './utils';
 
     let bmgWidth = $state(0);
     let classes = $state('splash');
@@ -17,7 +16,7 @@
     };
 </script>
 
-<div class={classes} out:fade={{ duration: 300 }} onpointerdown={onPointerDown}>
+<div class={classes} onpointerdown={onPointerDown}>
     <img src={BMG} alt='' width={bmgWidth} />
 </div>
 
@@ -33,7 +32,7 @@
         place-content: center;
         color: #f0f8ff;
         z-index: 300;
-        transition: background-color 0.3s;
+        /* transition: background-color 0.3s; */
     }
 
     .dark {
