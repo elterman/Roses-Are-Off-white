@@ -19,6 +19,7 @@ export const PROMPT_PLAY_AGAIN = 'play again?';
 export const PROMPT_START = 'start';
 export const PROMPT_RESUME = 'resume';
 export const PROMPT_NO = 'no';
+export const CHEER_BEST_SCORE = 'best score!';
 export const ROWS = 5;
 export const COLS = 5;
 export const FLOWER_COUNT = 10;

@@ -1,5 +1,5 @@
 import { sample, random } from 'lodash-es';
-import { APP_STATE, COLS, FLOWER_COUNT, PROMPT_PLAY_AGAIN, ROWS, TICK_MS, TIME_OUT_SECS } from './const';
+import { APP_STATE, CHEER_BEST_SCORE, COLS, FLOWER_COUNT, PROMPT_PLAY_AGAIN, ROWS, TICK_MS, TIME_OUT_SECS } from './const';
 import { _sound } from './sound.svelte';
 import { _prompt, _stats, ss } from './state.svelte';
 import { post, range } from './utils';
@@ -93,11 +93,13 @@ export const onOver = (over) => {
         const secs = elapsedSecs();
 
         _stats.total_secs += secs;
-        _stats.total_points += ss.score;
 
         if (_stats.best_secs === 0 || secs < _stats.best_secs) {
             _stats.best_secs = secs;
-            _stats.best_points = ss.score;
+
+            if (_stats.won > 1) {
+                _prompt.set(CHEER_BEST_SCORE);
+            }
         }
 
         persist();

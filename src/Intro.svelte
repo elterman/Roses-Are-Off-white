@@ -1,12 +1,12 @@
 <script>
-    import { fly, scale, slide } from 'svelte/transition';
+    import { linear } from 'svelte/easing';
+    import { fly } from 'svelte/transition';
     import { PROMPT_RESUME, PROMPT_START } from './const';
     import PromptPanel from './Prompt Panel.svelte';
     import { onStart } from './shared.svelte';
     import { _sound } from './sound.svelte';
     import { ss } from './state.svelte';
-    import { post, tapOrClick } from './utils';
-    import { linear } from 'svelte/easing';
+    import { tapOrClick } from './utils';
 
     const ul = '<ul style="margin: 15px 0 0 0;">';
     const li = '<li style="margin: 5px 0 0 -20px;">';
