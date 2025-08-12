@@ -102,7 +102,7 @@
     const disabled = $derived(!cell.value || ss.over || ss.cells.some((cob) => cob.killed) || _prompt.opacity);
 
     const classes = $derived(
-        `cell ${disabled ? 'disabled' : ''} ${cell.flip ? 'flipped' : ss.over === 'won' ? 'pulse' : ss.over === 'lost' ? 'shake' : ''}`,
+        `cell ${cell.back ? 'back' : ''} ${disabled ? 'disabled' : ''} ${cell.flip ? 'flipped' : ss.over === 'won' ? 'pulse' : ss.over === 'lost' ? 'shake' : ''}`,
     );
 </script>
 
@@ -127,6 +127,10 @@
         cursor: pointer;
         z-index: 1;
         transition: transform 0.6s linear;
+    }
+
+    .back {
+        scale: -1 1;
     }
 
     .disabled {
@@ -158,10 +162,6 @@
 
     .fake-fade {
         opacity: 0;
-    }
-
-    .minus {
-        font-weight: bold;
     }
 
     .pulse {
