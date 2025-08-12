@@ -63,8 +63,6 @@
         body {
             margin: 0;
             overflow: hidden;
-            --bill: #e5d5ca;
-            --gray: #6d6a67;
             --offwhite: #b8b8b8;
             --background: #202020;
             background: var(--background);

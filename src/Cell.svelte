@@ -1,5 +1,5 @@
 <script>
-    import Real from '$lib/images/Real.webp';
+    import RoseKilled from '$lib/images/Rose Killed.webp';
     import { random, sample } from 'lodash-es';
     import { FLOWER_COUNT, FLOWERS } from './const';
     import { onOver, selectedCells, selectedValueCells } from './shared.svelte';
@@ -106,12 +106,11 @@
 </script>
 
 <div bind:this={_this} class={classes} style="grid-area: {cell.row}/{cell.col};" onpointerdown={onPointerDown}>
-    <div class="cell-inner {cell.killed ? 'pop' : cell.selected && !ss.over ? 'border' : ''}">
-        <img class="img {cell.value && !cell.killed ? 'visible' : ''}" src={cell.value ? FLOWERS[cell.value - 1][0] : null} alt="" />
-        {#if cell.penalty}
-            {@const style = 'user-drag: none;'}
-            <img class="stamp" {style} src={Real} alt="" />
-        {/if}
+    <div class="cell-inner {cell.killed ? 'pop' : cell.selected && !ss.over ? 'border' : cell.penalty ? 'penalty' : ''}">
+        <img
+            class="img {cell.value && !cell.killed ? 'visible' : ''}"
+            src={cell.penalty ? RoseKilled : cell.value ? FLOWERS[cell.value - 1][0] : null}
+            alt="" />
     </div>
 </div>
 
@@ -153,10 +152,6 @@
         width: 50%;
         place-self: center;
         -webkit-user-drag: none; /* For WebKit browsers (Chrome, Safari) */
-    }
-
-    .fake-fade {
-        opacity: 0;
     }
 
     .pulse {
@@ -202,6 +197,10 @@
 
     .pop {
         animation: pop 0.3s cubic-bezier(0.16, 0.87, 0.48, 0.99) forwards;
+    }
+
+    .penalty {
+        background: var(--offwhite);
     }
 
     @keyframes pop {
