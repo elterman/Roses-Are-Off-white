@@ -1,30 +1,26 @@
 <script>
-    import F1 from '$lib/images/$1.webp';
-    import F10 from '$lib/images/$10.webp';
-    import F100 from '$lib/images/$100.webp';
-    import B100 from '$lib/images/$100B.webp';
-    import B10 from '$lib/images/$10B.webp';
-    import B1 from '$lib/images/$1B.webp';
-    import F2 from '$lib/images/$2.webp';
-    import F20 from '$lib/images/$20.webp';
-    import B20 from '$lib/images/$20B.webp';
-    import B2 from '$lib/images/$2B.webp';
-    import F5 from '$lib/images/$5.webp';
-    import F50 from '$lib/images/$50.webp';
-    import B50 from '$lib/images/$50B.webp';
-    import B5 from '$lib/images/$5B.webp';
+    import F1 from '$lib/images/F1.webp';
+    import F2 from '$lib/images/F2.webp';
+    import F3 from '$lib/images/F3.webp';
+    import F4 from '$lib/images/F4.webp';
+    import F5 from '$lib/images/F5.webp';
+    import F6 from '$lib/images/F6.webp';
+    import F7 from '$lib/images/F7.webp';
+    import F8 from '$lib/images/F8.webp';
+    import F9 from '$lib/images/F9.webp';
+    import F10 from '$lib/images/F10.webp';
     import Fake from '$lib/images/Fake.webp';
     import Real from '$lib/images/Real.webp';
     import { random, sample } from 'lodash-es';
-    import { BILLS } from './const';
     import { onOver, selectedCells, selectedValueCells } from './shared.svelte';
     import { _sound } from './sound.svelte';
     import { _prompt, ss } from './state.svelte';
-    import { cellIndex, post } from './utils';
+    import { cellIndex, post, range } from './utils';
+    import { FLOWER_COUNT } from './const';
 
     const { cell } = $props();
     let _this = $state(null);
-    const bills = { 1: [F1, B1], 2: [F2, B2], 5: [F5, B5], 10: [F10, B10], 20: [F20, B20], 50: [F50, B50], 100: [F100, B100] };
+    const flowers = [F1, F2, F3, F4, F5, F6, F7, F8, F9, F10];
 
     const updateScore = (gain) => {
         ss.score += gain;
@@ -86,7 +82,7 @@
                     delete cob.back;
 
                     const i = cellIndex(cob);
-                    ss.cells[i].value = sample(BILLS);
+                    ss.cells[i].value = sample(range(FLOWER_COUNT));
                     ss.cells[i].back = random(0, 1);
 
                     if (allOnes()) {
@@ -123,7 +119,7 @@
 
 <div bind:this={_this} class={classes} style="grid-area: {cell.row}/{cell.col};" onpointerdown={onPointerDown}>
     <div class="cell-inner {cell.killed ? 'pop' : ''}">
-        <img class="img {cell.value && !cell.killed ? 'visible' : ''}" src={cell.value ? bills[cell.value][cell.back] : null} alt="" />
+        <img class="img {cell.value && !cell.killed ? 'visible' : ''}" src={cell.value ? flowers[cell.value - 1] : null} alt="" />
         {#if cell.selected && !ss.over}
             {@const style = 'user-drag: none;'}
             <img class="stamp {cell.killed ? 'fake-fade' : ''}" {style} src={Fake} alt="" />
@@ -137,8 +133,8 @@
 <style>
     .cell {
         display: grid;
-        width: 123px;
-        height: 52px;
+        width: 75px;
+        height: 75px;
         cursor: pointer;
         z-index: 1;
         transition: transform 0.6s linear;

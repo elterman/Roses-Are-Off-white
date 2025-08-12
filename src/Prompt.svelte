@@ -74,12 +74,13 @@
 <style>
     .prompt {
         grid-area: 4/1;
+        display: grid;
         place-self: center;
         transform: scale(0);
         opacity: 0;
         z-index: 1;
         transition: 0.3s;
-        height: 52px;
+        /* height: 52px; */
         place-content: center;
     }
 

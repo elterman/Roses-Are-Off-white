@@ -1,5 +1,4 @@
 <script>
-    import Corners from '$lib/images/Corners.webp';
     import Frame from '$lib/images/Frame.webp';
     import GamePage from '../Game Page.svelte';
     import Intro from '../Intro.svelte';

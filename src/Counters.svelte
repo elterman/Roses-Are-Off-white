@@ -3,7 +3,7 @@
     import { ss } from './state.svelte';
     import Timer from './Timer.svelte';
 
-    const color = $derived(ss.over === 'lost' ? 'red' : '');
+    const color = $derived(ss.over === 'lost' ? 'lost' : '');
 </script>
 
 <div class="counters {color}">
@@ -27,7 +27,7 @@
         font-size: 40px;
     }
 
-    .red {
+    .lost {
         background: var(--offwhite);
         color: var(--background);
         padding: 3px 5px;

@@ -8,8 +8,6 @@
 </script>
 
 <div class="info-panel {ss.selected && !ss.over && _prompt.opacity === 0 ? 'visible' : ''}">
-    <div class="value"><NumberFlow prefix="$" value={(ss.selected || 0) * count} /></div>
-    <span>•</span>
     <span class="label">SELECTED</span>
     <span>•</span>
     <NumberFlowGroup>

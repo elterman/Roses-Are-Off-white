@@ -1,8 +1,8 @@
-import { random, sample } from 'lodash-es';
-import { APP_STATE, BILLS, COLS, PROMPT_PLAY_AGAIN, ROWS, TICK_MS, TIME_OUT_SECS } from './const';
+import { sample, random } from 'lodash-es';
+import { APP_STATE, COLS, FLOWER_COUNT, PROMPT_PLAY_AGAIN, ROWS, TICK_MS, TIME_OUT_SECS } from './const';
 import { _sound } from './sound.svelte';
 import { _prompt, _stats, ss } from './state.svelte';
-import { post } from './utils';
+import { post, range } from './utils';
 
 export const log = (value) => console.log($state.snapshot(value));
 
@@ -33,7 +33,7 @@ export const onStart = () => {
 
     for (let row = 1; row <= ROWS; row++) {
         for (let col = 1; col <= COLS; col++) {
-            cells.push({ row, col, value: sample(BILLS), back: random(0, 1) });
+            cells.push({ row, col, value: sample(range(FLOWER_COUNT)), back: random(0, 1) });
         }
     }
 
