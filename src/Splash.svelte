@@ -37,6 +37,6 @@
     }
 
     .dark {
-        background-color: #500000;
+        background-color: #000000;
     }
 </style>

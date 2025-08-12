@@ -1,6 +1,6 @@
 <script>
     import RoseKilled from '$lib/images/Rose Killed.webp';
-    import { random, sample } from 'lodash-es';
+    import { random, sample, sampleSize } from 'lodash-es';
     import { FLOWER_COUNT, FLOWERS } from './const';
     import { onOver, selectedCells, selectedValueCells } from './shared.svelte';
     import { _sound } from './sound.svelte';
@@ -62,6 +62,10 @@
             post(() => {
                 delete ss.selected;
 
+                const nonRoseCells = ss.cells.filter((cob) => cob.value > 1);
+                const rangeCount = Math.min(nonRoseCells.length, 7);
+                const nonRoses = range(FLOWER_COUNT).slice(1);
+
                 for (const cob of cells) {
                     delete cob.killed;
                     delete cob.penalty;
@@ -70,7 +74,10 @@
                     delete cob.back;
 
                     const i = cellIndex(cob);
-                    ss.cells[i].value = sample(range(FLOWER_COUNT));
+                    const selectFrom = [1, ...sampleSize(nonRoses, rangeCount)];
+                    console.log(selectFrom);
+
+                    ss.cells[i].value = sample(selectFrom);
                     ss.cells[i].back = random(0, 1);
 
                     if (allOnes()) {
