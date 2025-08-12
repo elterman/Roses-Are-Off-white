@@ -3,6 +3,7 @@
     import GamePage from '../Game Page.svelte';
     import Intro from '../Intro.svelte';
     import Splash from '../Splash.svelte';
+    import { ss } from '../state.svelte';
     import { post, windowSize } from '../utils';
 
     let scale = $state(1);
@@ -46,7 +47,7 @@
     post(() => (splash = false), 2000);
 </script>
 
-<div class="app">
+<div class="app {ss.over && !ss.intro ? ss.over : ''}">
     {#if splash}
         <Splash />
     {:else}
@@ -110,6 +111,14 @@
         display: grid;
         background: var(--background);
         touch-action: none;
+    }
+
+    .won {
+        filter: sepia(1);
+    }
+
+    .lost {
+        filter: sepia(1) hue-rotate(-60deg);
     }
 
     .frame {
