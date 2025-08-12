@@ -28,7 +28,7 @@
         width: 100dvw;
         height: 100dvh;
         display: grid;
-        background: #8a0000;
+        background: #202020;
         background-image: radial-gradient(transparent, black 100%);
         place-content: center;
         color: #f0f8ff;
