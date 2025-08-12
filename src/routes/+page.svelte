@@ -111,7 +111,6 @@
         display: grid;
         background: var(--background);
         touch-action: none;
-        overflow: hidden;
     }
 
     .won {
