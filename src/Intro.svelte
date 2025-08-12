@@ -90,6 +90,6 @@
         grid-area: 1/1 / span 3/1;
         place-self: end center;
         font-size: 12px;
-        transform: translateY(70px);
+        transform: translateY(65px);
     }
 </style>
