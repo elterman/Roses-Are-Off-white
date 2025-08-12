@@ -9,7 +9,7 @@ import F7 from '$lib/images/F7.webp';
 import F8 from '$lib/images/F8.webp';
 import F9 from '$lib/images/F9.webp';
 
-export const APP_STATE = 'YOLO V1';
+export const APP_STATE = 'RAOW V1';
 export const X = '✖';
 export const GAME_PAGE = 'GAME PAGE';
 export const PROMPT_TRANSITION = 300;
