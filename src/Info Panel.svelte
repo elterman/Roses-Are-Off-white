@@ -37,7 +37,8 @@
     }
 
     .label {
-        font-family: PFD Mono;
+        font-family: Cinzel;
+        font-size: 18px;
     }
 
     .count {

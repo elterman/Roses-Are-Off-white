@@ -27,14 +27,14 @@ export const TICK_MS = 500;
 export const TIME_OUT_SECS = 3559;
 
 export const FLOWERS = [
-    [F1, 'Rose'],
-    [F2, 'Dandelion'],
-    [F3, 'White Clover'],
-    [F4, 'Lily-of-the-Valley'],
-    [F5, 'Dame\'s Rocket'],
-    [F6, 'Chickweed'],
-    [F7, 'Chicory'],
-    [F8, 'Wood Sorrels'],
-    [F9, 'Creeping Bellflower'],
-    [F10, 'Henbit'],
+    [F1, 'rose'],
+    [F2, 'dandelion'],
+    [F3, 'white clover'],
+    [F4, 'lily-of-the-valley'],
+    [F5, 'dame\'s rocket'],
+    [F6, 'chickweed'],
+    [F7, 'chicory'],
+    [F8, 'wood sorrels'],
+    [F9, 'creeping bellflower'],
+    [F10, 'henbit'],
 ];
