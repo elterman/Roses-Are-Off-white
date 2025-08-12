@@ -1,5 +1,4 @@
 <script>
-    import Fake from '$lib/images/Fake.webp';
     import Real from '$lib/images/Real.webp';
     import { random, sample } from 'lodash-es';
     import { FLOWER_COUNT, FLOWERS } from './const';
@@ -102,17 +101,14 @@
     const disabled = $derived(!cell.value || ss.over || ss.cells.some((cob) => cob.killed) || _prompt.opacity);
 
     const classes = $derived(
-        `cell ${cell.back ? 'back' : ''} ${disabled ? 'disabled' : ''} ${cell.flip ? 'flipped' : ss.over === 'won' ? 'pulse' : ss.over === 'lost' ? 'shake' : ''}`,
+        `cell ${cell.back ? 'back' : ''} ${disabled ? 'disabled' : ''} ${cell.flip ? 'flipped' : ss.over === 'won' ? 'pulse' : ss.over === 'lost' ? 'shake' : ''} no-highlight`,
     );
 </script>
 
 <div bind:this={_this} class={classes} style="grid-area: {cell.row}/{cell.col};" onpointerdown={onPointerDown}>
-    <div class="cell-inner {cell.killed ? 'pop' : ''}">
+    <div class="cell-inner {cell.killed ? 'pop' : cell.selected && !ss.over ? 'border' : ''}">
         <img class="img {cell.value && !cell.killed ? 'visible' : ''}" src={cell.value ? FLOWERS[cell.value - 1][0] : null} alt="" />
-        {#if cell.selected && !ss.over}
-            {@const style = 'user-drag: none;'}
-            <img class="stamp {cell.killed ? 'fake-fade' : ''}" {style} src={Fake} alt="" />
-        {:else if cell.penalty}
+        {#if cell.penalty}
             {@const style = 'user-drag: none;'}
             <img class="stamp" {style} src={Real} alt="" />
         {/if}
@@ -127,6 +123,7 @@
         cursor: pointer;
         z-index: 1;
         transition: transform 0.6s linear;
+        box-sizing: border-box;
     }
 
     .back {
@@ -155,9 +152,7 @@
         z-index: 1;
         width: 50%;
         place-self: center;
-        transition: opacity 0.5s;
         -webkit-user-drag: none; /* For WebKit browsers (Chrome, Safari) */
-        filter: drop-shadow(0 0 5px white);
     }
 
     .fake-fade {
@@ -198,6 +193,11 @@
 
     .cell-inner {
         display: grid;
+        border: 1px solid transparent;
+    }
+
+    .border {
+        border: 1px solid var(--offwhite);
     }
 
     .pop {
