@@ -18,7 +18,7 @@
         ${li}${click} a flower to select it.</li>
         ${li}Then select all other flowers of the same type.</li>
         ${li}Once complete, all selected flowers are removed and then replaced.</li>
-        ${li}Selecting a rose instantly ends the game in failure.</li>
+        ${li}Selecting a rose ends the game in instant failure.</li>
         ${li}Otherwise, the game ends when only roses remain.</li>
         </ul>`;
 
