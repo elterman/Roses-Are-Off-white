@@ -75,7 +75,6 @@
 
                     const i = cellIndex(cob);
                     const selectFrom = [1, ...sampleSize(nonRoses, rangeCount)];
-                    console.log(selectFrom);
 
                     ss.cells[i].value = sample(selectFrom);
                     ss.cells[i].back = random(0, 1);
