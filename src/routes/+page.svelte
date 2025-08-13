@@ -119,7 +119,7 @@
     .disclaimer {
         grid-area: 1/1;
         place-self: center;
-        font-size: 12px;
+        font-size: 10px;
         transform: translateY(350px);
     }
 
