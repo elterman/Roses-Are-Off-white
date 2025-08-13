@@ -153,14 +153,6 @@
         scale: 1;
     }
 
-    .stamp {
-        grid-area: 1/1;
-        z-index: 1;
-        width: 50%;
-        place-self: center;
-        -webkit-user-drag: none; /* For WebKit browsers (Chrome, Safari) */
-    }
-
     .pulse {
         animation: pulse 0.2s alternate 6 ease-in-out;
     }

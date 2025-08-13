@@ -40,13 +40,4 @@
     .swirled {
         transform: rotateY(90deg);
     }
-
-    .stamp {
-        z-index: 1;
-        width: 250px;
-        place-self: center;
-        transition: opacity 0.5s;
-        -webkit-user-drag: none; /* For WebKit browsers (Chrome, Safari) */
-        filter: drop-shadow(0 0 5px white);
-    }
 </style>
