@@ -1,15 +1,7 @@
 <script>
-    import BMG from '$lib/images/BMG.webp';
     import { scale } from 'svelte/transition';
-    import { windowSize } from './utils';
 
-    let bmgWidth = $state(0);
     let classes = $state('splash');
-
-    $effect(() => {
-        let { w, h } = windowSize();
-        bmgWidth = Math.min(300, Math.min(w, h) * 0.6);
-    });
 
     const onPointerDown = () => {
         localStorage.clear();
@@ -18,7 +10,7 @@
 </script>
 
 <div class={classes} onpointerdown={onPointerDown} out:scale={{ opacity: 1 }}>
-    <img src={BMG} alt="" width={bmgWidth} />
+    <!-- <img src={BMG} alt="" width={bmgWidth}/> -->
 </div>
 
 <style>
@@ -29,9 +21,11 @@
         height: 100dvh;
         display: grid;
         background: #202020;
-        background-image: radial-gradient(transparent, black 100%);
-        place-content: center;
-        color: #f0f8ff;
+        background-image:  url($lib/images/BMG.webp);
+        background-size: calc(min(300px, min(100dvh, 100dvw) * 0.6));
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
         z-index: 300;
         /* transition: background-color 0.3s; */
     }
