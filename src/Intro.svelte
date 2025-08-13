@@ -13,7 +13,7 @@
     const click = tapOrClick();
 
     const CONTENT = `
-        <span>Your rose garden is overrun by invasive flowers. Weed them out as quickly as possible. </span>
+        <span>Weed out invasive flowers from your rose garden as quickly as possible.</span>
         ${ul}
         ${li}${click} a flower to select it.</li>
         ${li}Then select all other flowers of the same type.</li>
