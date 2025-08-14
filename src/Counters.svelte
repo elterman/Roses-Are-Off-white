@@ -8,8 +8,8 @@
 <div class="counters">
     {#if elapsedSecs() >= TIME_OUT_SECS}
         <span>timed out at</span>
-    {:else if ss.over === 'lost'}
-        <span>you failed at</span>
+    {:else if ss.over}
+        <span>{ss.over === 'lost' ? 'you failed at' : 'perfect garden in'}</span>
     {/if}
     <div class="timer">
         <Timer secs={elapsedSecs()} />
