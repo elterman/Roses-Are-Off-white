@@ -52,6 +52,7 @@
 
     .label {
         font-family: PFD Mono;
+        font-weight: normal;
     }
 
     .plays {
