@@ -63,7 +63,7 @@
                 delete ss.selected;
 
                 const nonRoseCells = ss.cells.filter((cob) => cob.value > 1);
-                const rangeCount = Math.min(nonRoseCells.length, 7);
+                const rangeCount = Math.min(nonRoseCells.length, 6);
                 const nonRoses = range(FLOWER_COUNT).slice(1);
 
                 for (const cob of cells) {
