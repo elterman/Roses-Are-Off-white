@@ -13,7 +13,7 @@ let ops = {
 };
 
 // vercel ops
-// ops = {};
+ops = {};
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
