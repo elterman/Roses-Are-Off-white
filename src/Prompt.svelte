@@ -1,5 +1,5 @@
 <script>
-    import { PROMPT_NO, PROMPT_PLAY_AGAIN, PROMPT_RESET_STATS, PROMPT_RESTART } from './const';
+    import { CHEER_BEST_SCORE, PROMPT_NO, PROMPT_PLAY_AGAIN, PROMPT_RESET_STATS, PROMPT_RESTART } from './const';
     import PromptPanel from './Prompt Panel.svelte';
     import { onPlayAgain, persist } from './shared.svelte';
     import { _sound } from './sound.svelte';
@@ -42,7 +42,7 @@
     const style = `font-size: ${24}px;`;
 </script>
 
-<div id="prompt" class="prompt {_prompt.opacity ? 'visible' : ''}">
+<div id="prompt" class="prompt {_prompt.opacity ? 'visible' : ''} {_prompt.id === CHEER_BEST_SCORE ? 'pulse' : ''}">
     {#if label === PROMPT_PLAY_AGAIN}
         <PromptPanel ops={[{ label, style, onClick: onPlayAgain }]} />
     {:else if label === PROMPT_RESTART}
@@ -71,12 +71,24 @@
         opacity: 0;
         z-index: 1;
         transition: 0.3s;
-        /* height: 52px; */
         place-content: center;
     }
 
     .visible {
         opacity: 1;
         transform: scale(1);
+    }
+
+    .pulse {
+        animation: pulse 0.2s alternate 10 ease-in-out;
+    }
+
+    @keyframes pulse {
+        from {
+            transform: scale(1);
+        }
+        to {
+            transform: scale(0.85);
+        }
     }
 </style>

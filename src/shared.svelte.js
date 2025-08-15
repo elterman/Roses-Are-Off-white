@@ -105,7 +105,7 @@ export const onOver = (over) => {
         persist();
     }
 
-    post(() => _prompt.set(PROMPT_PLAY_AGAIN), 1000);
+    post(() => _prompt.set(PROMPT_PLAY_AGAIN), _prompt.id === CHEER_BEST_SCORE ? 3000 : 1000);
 };
 
 export const elapsedSecs = () => Math.round(((ss.ticks || 0) * TICK_MS) / 1000);
