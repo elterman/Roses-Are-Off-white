@@ -60,6 +60,7 @@
     .disabled {
         cursor: initial;
         pointer-events: none;
+        /* opacity: 0; */
     }
 
     .button:focus {

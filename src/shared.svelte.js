@@ -109,3 +109,10 @@ export const onOver = (over) => {
 };
 
 export const elapsedSecs = () => Math.round(((ss.ticks || 0) * TICK_MS) / 1000);
+
+export const onPlayAgain = () => {
+    _sound.play('plop');
+
+    ss.swirl = true;
+    ss.score = 0;
+};

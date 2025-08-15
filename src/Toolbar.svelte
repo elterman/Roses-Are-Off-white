@@ -7,7 +7,7 @@
     import SoundOff from '$lib/images/Sound Off.webp';
     import SoundOn from '$lib/images/Sound On.webp';
     import { PROMPT_PLAY_AGAIN, PROMPT_RESET_STATS, PROMPT_RESTART } from './const';
-    import { persist, showIntro } from './shared.svelte';
+    import { onPlayAgain, persist, showIntro } from './shared.svelte';
     import { _sound } from './sound.svelte';
     import { _prompt, _stats, ss } from './state.svelte';
     import ToolButton from './Tool Button.svelte';
@@ -42,6 +42,12 @@
             return;
         }
 
+        if (ss.over) {
+            _prompt.opacity = 0;
+            onPlayAgain();
+            return;
+        }
+
         _sound.play('plop');
         _prompt.set(PROMPT_RESTART);
     };
@@ -71,7 +77,7 @@
 
 <div class="toolbar">
     <ToolButton id="tb-help" src={Help} onClick={onHelp} />
-    <ToolButton id="tb-restart" src={Restart} onClick={onRestart} disabled={!ss.timer}/>
+    <ToolButton id="tb-restart" src={Restart} onClick={onRestart} disabled={!ss.timer && !ss.over} />
     <ToolButton id="tb-reset-stats" src={ResetStats} onClick={onResetStats} disabled={_stats.plays === 0} />
     <ToolButton id="tb-sfx" src={_sound.sfx ? SoundOn : SoundOff} onClick={onSound} />
     <ToolButton id="tb-music" src={_sound.music ? MusicOn : MusicOff} onClick={onMusic} />

@@ -1,7 +1,7 @@
 <script>
     import { PROMPT_NO, PROMPT_PLAY_AGAIN, PROMPT_RESET_STATS, PROMPT_RESTART } from './const';
     import PromptPanel from './Prompt Panel.svelte';
-    import { persist } from './shared.svelte';
+    import { onPlayAgain, persist } from './shared.svelte';
     import { _sound } from './sound.svelte';
     import { _prompt, _stats, ss } from './state.svelte';
 
@@ -37,13 +37,6 @@
         _stats.best_secs = 0;
 
         persist();
-    };
-
-    const onPlayAgain = () => {
-        _sound.play('plop');
-
-        ss.swirl = true;
-        ss.score = 0;
     };
 
     const style = `font-size: ${24}px;`;
